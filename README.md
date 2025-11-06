@@ -1,2 +1,2 @@
 # javafx-util
-javafx-util
+Can change alert dialog box theme, button theme by calling -Theme.setTheme(ThemeConfig.LIGHT_THEME) at the startup
