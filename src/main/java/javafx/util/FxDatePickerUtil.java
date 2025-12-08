@@ -33,20 +33,26 @@ public class FxDatePickerUtil {
     //------------------------------------------------------------------------------------------------------------------
 
     public static boolean isNotEmptyDatePicker(DatePicker datePicker) {
-        boolean b = true;
-        try {
-            if (datePicker.getValue().toString().isEmpty()) {
-                b = false;
-                FxAlertsUtil.waningMessage("Fill the date");
-            } else {
-                b = true;
-            }
-
-        } catch (Exception e) {
-            b = false;
-            System.out.println("exception in Datepicker @ isEmptyDatePicker method " + e);
+        if (datePicker == null) {
+            FxAlertsUtil.waningMessage("Date picker is not initialized");
+            return false;
         }
-        return b;
+
+        // Check if value is null (no date selected)
+        if (datePicker.getValue() == null) {
+            FxAlertsUtil.waningMessage("Please select a date");
+            return false;
+        }
+
+        // Check if date picker is editable and text field is empty or invalid
+        if (datePicker.isEditable()) {
+            String text = datePicker.getEditor().getText();
+            if (text == null || text.trim().isEmpty()) {
+                FxAlertsUtil.waningMessage("Please enter a valid date");
+                return false;
+            }
+        }
+        return true;
     }
     //------------------------------------------------------------------------------------------------------------------
 
