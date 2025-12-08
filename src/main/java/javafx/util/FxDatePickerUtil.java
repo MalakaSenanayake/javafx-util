@@ -110,4 +110,14 @@ public class FxDatePickerUtil {
         });
     }
     //------------------------------------------------------------------------------------------------------------------
+    public static void setDatePlusGivenMonths(DatePicker sourceDatePicker, DatePicker targetDatePicker,int month) {
+        if (sourceDatePicker.getValue() == null) {
+            targetDatePicker.setValue(null);
+            return;
+        }
+        LocalDate selectedDate = sourceDatePicker.getValue();
+        LocalDate calculatedDate = selectedDate.plusMonths(month);
+        targetDatePicker.setValue(calculatedDate);
+    }
+    //------------------------------------------------------------------------------------------------------------------
 }
