@@ -8,25 +8,17 @@ import javafx.scene.control.TextField;
  * @author malaka senanayake @ Creative IT
  */
 public class FxTextFieldUtil {
-
-    private static final String DEFAULT_STYLE = "-border-colour:-border-colour;-text-colour :-text-colour;"; // normal colour
-    private static final String ERROR_STYLE = "-border-colour:-error-border-colour;-text-colour :-error-text-colour;"; // error colour
-
+    // Still not configured dark theme
+    private static final String DEFAULT_STYLE ; // normal colour
+    private static final String ERROR_STYLE ; // error colour
     //------------------------------------------------------------------------------------------------------------------
     static {
-        if (FxTheme.getTheme().equals(Configuration.DARK_THEME)){
-//            DEFAULT_STYLE = "";
-//            ERROR_STYLE = "";
-            System.out.println("[INFO] Theme Configurations-------Dark theme");
-        }else if (FxTheme.getTheme().equals(Configuration.LIGHT_THEME)){
-//            DEFAULT_STYLE = "";
-//            ERROR_STYLE = "";
-            System.out.println("[INFO] Theme Configurations-------Light theme ");
+        if (Configuration.getTheme().equals("LIGHT")){
+           DEFAULT_STYLE = "-border-colour:-border-colour;-text-colour :-text-colour;"; // normal colour
+           ERROR_STYLE = "-border-colour:-error-border-colour;-text-colour :-error-text-colour;"; // error colour
         }else{
-//            DEFAULT_STYLE = "";
-//            ERROR_STYLE = "";
-            System.out.println("[INFO] Theme is not configured.");
-            System.out.println("[INFO] To set the theme you can use - Theme.setTheme(ThemeConfig.LIGHT_THEME)");
+            DEFAULT_STYLE = "-border-colour:-border-colour;-text-colour :-text-colour;"; // normal colour - same
+            ERROR_STYLE = "-border-colour:-error-border-colour;-text-colour :-error-text-colour;"; // error colour - same
         }
     }
     //------------------------------------------------------------------------------------------------------------------
@@ -36,51 +28,25 @@ public class FxTextFieldUtil {
             textField.setStyle(DEFAULT_STYLE);
         }
     }
-    //------------------------------------------------------------------------------------------------------------------
 
+    //------------------------------------------------------------------------------------------------------------------
     public static void setEmpty(TextField[] ar, boolean isSaved) {
         if (isSaved) {
             for (TextField textField : ar) {
                 textField.clear();
-                textField.setStyle(DEFAULT_STYLE);
+                toDefault(textField);
             }
         }
     }
-    //------------------------------------------------------------------------------------------------------------------
 
-//    public static boolean isNotEmpty(TextField[] ar) {
-//        boolean b = true;
-//        for (int i = 0; i < ar.length; i++) {
-//            if (ar[i].getText().isEmpty()) {
-//                toError(ar[i]);
-//                FxAlertsUtil.waningMessage("You cannot save data with empty fields , please fill data and retry");
-//                toDefault(ar[i]);
-//                ar[i].requestFocus();
-//                i = ar.length;
-//                b = false;
-//            }
-//        }
-//        return b;
-//    }
-//    //------------------------------------------------------------------------------------------------------------------
-//
-//    public static boolean isNotEmpty(TextField textField) {
-//        boolean b = true;
-//        if (textField.getText().isEmpty()) {
-//            toError(textField);
-//            FxAlertsUtil.waningMessage("You cannot save data with empty fields , please fill data and retry");
-//            toDefault(textField);
-//            textField.requestFocus();
-//            b = false;
-//        }
-//        return b;
-//    }
     //------------------------------------------------------------------------------------------------------------------
     public static boolean isNotEmpty(TextField[] ar) {
         boolean b = true;
         for (int i = 0; i < ar.length; i++) {
             if (ar[i].getText().isEmpty()) {
+                toError(ar[i]);
                 FxAlertsUtil.waningMessage("You cannot save data with empty fields , please fill data and retry");
+                toDefault(ar[i]);
                 ar[i].requestFocus();
                 i = ar.length;
                 b = false;
@@ -88,24 +54,26 @@ public class FxTextFieldUtil {
         }
         return b;
     }
-    //------------------------------------------------------------------------------------------------------------------
 
+    //------------------------------------------------------------------------------------------------------------------
     public static boolean isNotEmpty(TextField textField) {
         boolean b = true;
         if (textField.getText().isEmpty()) {
+            toError(textField);
             FxAlertsUtil.waningMessage("You cannot save data with empty fields , please fill data and retry");
+            toDefault(textField);
             textField.requestFocus();
             b = false;
         }
         return b;
     }
-    //------------------------------------------------------------------------------------------------------------------
 
+    //------------------------------------------------------------------------------------------------------------------
     public static boolean isPhoneNumbersValid(TextField[] ar) {
         boolean b = true;
         for (int i = 0; i < ar.length; i++) {
             if (ar[i].getText().length() < 10) {
-                ar[i].setStyle(ERROR_STYLE);
+                toError(ar[i]);
                 FxAlertsUtil.waningMessage(" you entered phone number hasn't 10 numbers, " +
                         "please enter valid phone number");
                 ar[i].requestFocus();
@@ -127,8 +95,8 @@ public class FxTextFieldUtil {
         }
         return b;
     }
-    //------------------------------------------------------------------------------------------------------------------
 
+    //------------------------------------------------------------------------------------------------------------------
     public static void checkPhoneNumber(TextField textField) {
         if (textField.getText().length() < 10) {
             FxAlertsUtil.waningMessage(" Phone number is not valid , please valid phone number ");
@@ -137,8 +105,8 @@ public class FxTextFieldUtil {
             textField.requestFocus();
         }
     }
-    //------------------------------------------------------------------------------------------------------------------
 
+    //------------------------------------------------------------------------------------------------------------------
     public static void checkPhoneNumbers(TextField[] ar) {
         for (int i = 0; i < ar.length; i++) {
             if (ar[i].getText().length() < 10) {
@@ -150,52 +118,42 @@ public class FxTextFieldUtil {
             }
         }
     }
-    //------------------------------------------------------------------------------------------------------------------
 
-    public static boolean isLargeValue(TextField checkValueTextField) {
-        boolean b = true;
-        if (checkValueTextField.getStyle().equals(ERROR_STYLE)) {
-            b = false;
-            FxAlertsUtil.waningMessage(" You entered value is lager than exist value , " +
-                    "please enter small value or equal value & try again");
-            checkValueTextField.clear();
-            checkValueTextField.requestFocus();
-        }
-        return b;
-    }
     //------------------------------------------------------------------------------------------------------------------
+//    public static boolean isLargeValue(TextField checkValueTextField) {
+//        boolean b = true;
+//        if (checkValueTextField.getStyle().equals(ERROR_STYLE)) {
+//            b = false;
+//            FxAlertsUtil.waningMessage(" You entered value is lager than exist value , " +
+//                    "please enter small value or equal value & try again");
+//            checkValueTextField.clear();
+//            checkValueTextField.requestFocus();
+//        }
+//        return b;
+//    }
 
-    public static boolean isSmallValue(TextField checkValueTextField) {
-        boolean b = true;
-        if (checkValueTextField.getStyle().equals(ERROR_STYLE)) {
-            b = false;
-            FxAlertsUtil.waningMessage(" You entered value is smaller than exist value ," +
-                    " please enter large value & & try again");
-            checkValueTextField.clear();
-            checkValueTextField.requestFocus();
-        }
-        return b;
-    }
     //------------------------------------------------------------------------------------------------------------------
+//    public static boolean isSmallValue(TextField checkValueTextField) {
+//        boolean b = true;
+//        if (checkValueTextField.getStyle().equals(ERROR_STYLE)) {
+//            b = false;
+//            FxAlertsUtil.waningMessage(" You entered value is smaller than exist value ," +
+//                    " please enter large value & & try again");
+//            checkValueTextField.clear();
+//            checkValueTextField.requestFocus();
+//        }
+//        return b;
+//    }
 
-    public static void toError(TextField textField) {
-        textField.setStyle(ERROR_STYLE);
-    }
     //------------------------------------------------------------------------------------------------------------------
-
-    public static void toDefault(TextField textField) {
-        textField.setStyle(DEFAULT_STYLE);
-    }
-    //------------------------------------------------------------------------------------------------------------------
-
     public static void setEditable(TextField[] ar) {
         for (TextField textField : ar) {
             textField.setEditable((textField.getText().equals("0")) | (textField.getText().equals("0.0")) |
                     (textField.getText().equals("0.00")));
         }
     }
-    //------------------------------------------------------------------------------------------------------------------
 
+    //------------------------------------------------------------------------------------------------------------------
     public static void setFocus(final TextField textField) {
         Platform.runLater(new Runnable() {
             @Override
@@ -205,15 +163,15 @@ public class FxTextFieldUtil {
             }
         });
     }
-    //------------------------------------------------------------------------------------------------------------------
 
+    //------------------------------------------------------------------------------------------------------------------
     public static void setNormal(TextField[] ar) {
         for (TextField textField : ar) {
-            textField.setStyle(DEFAULT_STYLE);
+                toDefault(textField);
         }
     }
-    //------------------------------------------------------------------------------------------------------------------
 
+    //------------------------------------------------------------------------------------------------------------------
     public static void setFocusToNext(TextField currentTextField, TextField nextTextField) {
         if (currentTextField.getText().isEmpty()) {
             setFocus(currentTextField);
@@ -221,16 +179,16 @@ public class FxTextFieldUtil {
             setFocus(nextTextField);
         }
     }
-    //------------------------------------------------------------------------------------------------------------------
 
+    //------------------------------------------------------------------------------------------------------------------
     public static void copyValue(TextField valueTextField, TextField copyTextField) {
         if (!valueTextField.getText().isEmpty()) {
             copyTextField.clear();
             copyTextField.setText(valueTextField.getText());
         }
     }
-    //------------------------------------------------------------------------------------------------------------------
 
+    //------------------------------------------------------------------------------------------------------------------
     public static boolean isNotAvailable(TextField textField, boolean availability) {
         if (availability) {
             toError(textField);
@@ -246,8 +204,8 @@ public class FxTextFieldUtil {
             return true;
         }
     }
-    //------------------------------------------------------------------------------------------------------------------
 
+    //------------------------------------------------------------------------------------------------------------------
     public static void toOnlyPhoneNumber(final TextField textField) {
         textField.setOnKeyTyped(new EventHandler<javafx.scene.input.KeyEvent>() {
             @Override
@@ -265,8 +223,8 @@ public class FxTextFieldUtil {
             }
         });
     }
-    //------------------------------------------------------------------------------------------------------------------
 
+    //------------------------------------------------------------------------------------------------------------------
     public static void toOnlyIntPositive(final TextField textField) {
         textField.setOnKeyTyped(new EventHandler<javafx.scene.input.KeyEvent>() {
             @Override
@@ -284,8 +242,8 @@ public class FxTextFieldUtil {
             }
         });
     }
-    //------------------------------------------------------------------------------------------------------------------
 
+    //------------------------------------------------------------------------------------------------------------------
     public static void toOnlyInt(TextField textField) {
         textField.setOnKeyTyped(new EventHandler<javafx.scene.input.KeyEvent>() {
             @Override
@@ -298,8 +256,8 @@ public class FxTextFieldUtil {
             }
         });
     }
-    //------------------------------------------------------------------------------------------------------------------
 
+    //------------------------------------------------------------------------------------------------------------------
     public static void toOnlyDecimalPositive(final TextField textField) {
         textField.setOnKeyTyped(new EventHandler<javafx.scene.input.KeyEvent>() {
             @Override
@@ -325,8 +283,8 @@ public class FxTextFieldUtil {
             }
         });
     }
-    //------------------------------------------------------------------------------------------------------------------
 
+    //------------------------------------------------------------------------------------------------------------------
     public static void toOnlyDecimal(final TextField textField) {
         textField.setOnKeyTyped(new EventHandler<javafx.scene.input.KeyEvent>() {
             @Override
@@ -347,8 +305,8 @@ public class FxTextFieldUtil {
             }
         });
     }
-    //------------------------------------------------------------------------------------------------------------------
 
+    //------------------------------------------------------------------------------------------------------------------
     public static void toOnlyCapitalLetters(TextField textField) {
         textField.setOnKeyTyped(new EventHandler<javafx.scene.input.KeyEvent>() {
             @Override
@@ -361,8 +319,8 @@ public class FxTextFieldUtil {
             }
         });
     }
-    //------------------------------------------------------------------------------------------------------------------
 
+    //------------------------------------------------------------------------------------------------------------------
     public static void toOnlySimpleLetters(TextField textField) {
         textField.setOnKeyTyped(new EventHandler<javafx.scene.input.KeyEvent>() {
             @Override
@@ -375,8 +333,8 @@ public class FxTextFieldUtil {
             }
         });
     }
-    //------------------------------------------------------------------------------------------------------------------
 
+    //------------------------------------------------------------------------------------------------------------------
     public static void toValidate(final TextField textField) {
         textField.setOnKeyTyped(new EventHandler<javafx.scene.input.KeyEvent>() {
             @Override
@@ -390,8 +348,8 @@ public class FxTextFieldUtil {
             }
         });
     }
-    //------------------------------------------------------------------------------------------------------------------
 
+    //------------------------------------------------------------------------------------------------------------------
     public static void toNonSpace(final TextField textField) {
         textField.setOnKeyTyped(new EventHandler<javafx.scene.input.KeyEvent>() {
             @Override
@@ -405,8 +363,8 @@ public class FxTextFieldUtil {
             }
         });
     }
-    //------------------------------------------------------------------------------------------------------------------
 
+    //------------------------------------------------------------------------------------------------------------------
     public static boolean isLargeValueInKeyRelease(TextField textField, double value) {
         boolean b = true;
         FxTextFieldUtil.toDefault(textField);
@@ -427,8 +385,8 @@ public class FxTextFieldUtil {
         }
         return b;
     }
-    //------------------------------------------------------------------------------------------------------------------
 
+    //------------------------------------------------------------------------------------------------------------------
     public static boolean isSmallValueInKeyRelease(TextField textField, double value) {
         boolean b = true;
         FxTextFieldUtil.toDefault(textField);
@@ -445,8 +403,8 @@ public class FxTextFieldUtil {
         }
         return b;
     }
-    //------------------------------------------------------------------------------------------------------------------
 
+    //------------------------------------------------------------------------------------------------------------------
     public static void calculateGoldPrizeInKeyRelease(TextField itemWeightTF, TextField poundValueTF,
                                                       TextField goldPrizeTF) {
         toDefault(itemWeightTF);
@@ -465,8 +423,8 @@ public class FxTextFieldUtil {
             toError(itemWeightTF);
         }
     }
-    //------------------------------------------------------------------------------------------------------------------
 
+    //------------------------------------------------------------------------------------------------------------------
     public static String calculateDeferenceInKeyRelease(TextField textField, double value) {
         double deference = 0;
         if ((!textField.getText().isEmpty()) && (value != 0)) {
@@ -477,8 +435,8 @@ public class FxTextFieldUtil {
         }
         return ("" + deference);
     }
-    //------------------------------------------------------------------------------------------------------------------
 
+    //------------------------------------------------------------------------------------------------------------------
     public static String calculateSumInKeyRelease(TextField firstValueTF, TextField secondValueTF) {
         double addtion = 0;
         if ((!firstValueTF.getText().isEmpty()) && (!secondValueTF.getText().isEmpty())) {
@@ -489,8 +447,8 @@ public class FxTextFieldUtil {
         }
         return ("" + addtion);
     }
-    //------------------------------------------------------------------------------------------------------------------
 
+    //------------------------------------------------------------------------------------------------------------------
     public static void typeSameInKeyRelease(TextField textField1, TextField textField2) {
         if (!textField1.getText().isEmpty()) {
             textField2.clear();
@@ -499,14 +457,24 @@ public class FxTextFieldUtil {
             textField2.clear();
         }
     }
-    //------------------------------------------------------------------------------------------------------------------
 
+    //------------------------------------------------------------------------------------------------------------------
     public static void isAvailabilityInKeyRelease(TextField textField, boolean availability) {
         if (availability) {
             toError(textField);
         } else {
             toDefault(textField);
         }
+    }
+
+    // Healping methods-------------------------------------------------------------------------------------------------
+    private static void toError(TextField textField) {
+        textField.setStyle(ERROR_STYLE);
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
+    private static void toDefault(TextField textField) {
+        textField.setStyle(DEFAULT_STYLE);
     }
     //------------------------------------------------------------------------------------------------------------------
 

@@ -155,7 +155,7 @@ public class FxFormUtil {
     }
 
     private static void setStageIcon() {
-        String imagePath = Configuration.APP_ICON;
+        String imagePath = Configuration.getAppIcon();
         try {
             Image icon = new Image(imagePath);
             subStage.getIcons().add(icon);
