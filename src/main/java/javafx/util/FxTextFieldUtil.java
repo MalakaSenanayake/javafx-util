@@ -14,11 +14,11 @@ public class FxTextFieldUtil {
     //------------------------------------------------------------------------------------------------------------------
     static {
         if (Configuration.getTheme().equals("LIGHT")){
-           DEFAULT_STYLE = "-border-colour:-border-colour;-text-colour :-text-colour;"; // normal colour
-           ERROR_STYLE = "-border-colour:-error-border-colour;-text-colour :-error-text-colour;"; // error colour
+           DEFAULT_STYLE = "-fx-border-color:-border-colour;-fx-text-fill :-text-colour;"; // normal colour
+           ERROR_STYLE = "-fx-border-color:-error-border-colour;-fx-text-fill :-error-text-colour;"; // error colour
         }else{
-            DEFAULT_STYLE = "-border-colour:-border-colour;-text-colour :-text-colour;"; // normal colour - same
-            ERROR_STYLE = "-border-colour:-error-border-colour;-text-colour :-error-text-colour;"; // error colour - same
+           DEFAULT_STYLE = "-fx-border-color:-border-colour;-fx-text-fill :-text-colour;"; // normal colour - same
+           ERROR_STYLE = "-fx-border-color:-error-border-colour;-fx-text-fill :-error-text-colour;"; // error colour - same
         }
     }
     //------------------------------------------------------------------------------------------------------------------
