@@ -21,7 +21,7 @@ public class FxFileChooserUtil {
             path = file.getAbsolutePath();
             path = path.replace("\\", "/");
         } catch (Exception e) {
-            System.out.println("[Error] exception at FXFileChooser in selectExcelFile method " + e);
+            System.err.println("[Error] exception at FXFileChooser in selectExcelFile method " + e);
         }
         return path;
     }
@@ -42,7 +42,7 @@ public class FxFileChooserUtil {
                 FxAlertsUtil.waningMessage(" select  excel files only (.xls)",owner);
             }
         } catch (Exception e) {
-            System.out.println("[Error] exception at FXFileChooser in selectExcelFile method " + e);
+            System.err.println("[Error] exception at FXFileChooser in selectExcelFile method " + e);
         }
         return excelFile;
     }
@@ -63,7 +63,7 @@ public class FxFileChooserUtil {
                 FxAlertsUtil.waningMessage(" select  excel files only (.xlsx)",owner);
             }
         } catch (Exception e) {
-            System.out.println("[Error] exception at FXFileChooser in selectExcelFile method " + e);
+            System.err.println("[Error] exception at FXFileChooser in selectExcelFile method " + e);
         }
         return excelFile;
     }
@@ -78,7 +78,7 @@ public class FxFileChooserUtil {
             path = file.getAbsolutePath();
             path = path.replace("\\", "/");
         } catch (Exception e) {
-            System.out.println("[Error] exception at FXFileChooser in selectExcelFile method " + e);
+            System.err.println("[Error] exception at FXFileChooser in selectExcelFile method " + e);
         }
         return path;
     }
@@ -107,9 +107,9 @@ public class FxFileChooserUtil {
                 FxAlertsUtil.waningMessage("Invalid File Selected! Please select a valid .csv file.",owner);
             }
         } catch (NullPointerException exception){
-            System.out.println("Exception null pointer - "+exception);
+            System.err.println("Exception null pointer - "+exception);
         } catch (Exception e) {
-            System.out.println("[Error] Exception at FXFileChooser in selectCSVFile method " + e);
+            System.err.println("[Error] Exception at FXFileChooser in selectCSVFile method " + e);
         }
         return csvFile;
     }

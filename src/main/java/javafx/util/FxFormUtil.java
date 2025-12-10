@@ -35,9 +35,9 @@ public class FxFormUtil {
             loadFXML(fxmlPath);
             showStage();
         } catch (IOException ex) {
-            handleException("Failed to create new frame with owner", ex);
+            System.err.println("[ERROR]" + ex.getMessage());
         } catch (IllegalArgumentException ex) {
-            handleException("Invalid image path specified", ex);
+            System.err.println("[ERROR]" + ex.getMessage());
         } finally {
             cleanup();
         }
@@ -53,9 +53,9 @@ public class FxFormUtil {
             loadFXML(fxmlPath, controller);
             showStage();
         } catch (IOException ex) {
-            handleException("Failed to create new frame with controller", ex);
+            System.err.println("[ERROR]" + ex.getMessage());
         } catch (IllegalArgumentException ex) {
-            handleException("Invalid image path specified", ex);
+            System.err.println("[ERROR]" + ex.getMessage());
         } finally {
             cleanup();
         }
@@ -72,9 +72,9 @@ public class FxFormUtil {
             loadFXML(fxmlAnchorPanePath);
             showStage();
         } catch (IOException ex) {
-            handleException("Failed to create new dialog with owner", ex);
+            System.err.println("[ERROR]" + ex.getMessage());
         } catch (IllegalArgumentException ex) {
-            handleException("Invalid image path specified", ex);
+            System.err.println("[ERROR]" + ex.getMessage());
         } finally {
             cleanup();
         }
@@ -89,9 +89,9 @@ public class FxFormUtil {
             loadFXML(fxmlAnchorPanePath, controller);
             showStage();
         } catch (IOException ex) {
-            handleException("Failed to create new dialog with controller", ex);
+            System.err.println("[ERROR]" + ex.getMessage());
         } catch (IllegalArgumentException ex) {
-            handleException("Invalid image path specified", ex);
+            System.err.println("[ERROR]" + ex.getMessage());
         } finally {
             cleanup();
         }
@@ -104,7 +104,7 @@ public class FxFormUtil {
                 ((Stage) node.getParent().getScene().getWindow()).close();
             }
         } catch (Exception ex) {
-            handleException("Failed to close window", ex);
+            System.err.println("[ERROR]" + ex.getMessage());
         }
     }
 
@@ -116,7 +116,7 @@ public class FxFormUtil {
             subStage.initStyle(style);
             loader = new FXMLLoader();
         } catch (Exception ex) {
-            throw new IllegalStateException("Failed to initialize stage", ex);
+            System.err.println("[ERROR]" + ex.getMessage());
         }
     }
 
@@ -150,12 +150,12 @@ public class FxFormUtil {
             subStage.centerOnScreen();
             subStage.show();
         } catch (Exception ex) {
-            handleException("Failed to show stage", ex);
+            System.err.println("[ERROR]" + ex.getMessage());
         }
     }
 
     private static void setStageIcon() {
-        String imagePath = Configuration.getAppIcon();
+        String imagePath = Configuration.APP_ICON;
         try {
             Image icon = new Image(imagePath);
             subStage.getIcons().add(icon);
@@ -163,17 +163,11 @@ public class FxFormUtil {
             throw new IllegalArgumentException("Failed to load icon from: " + imagePath, ex);
         }
     }
-
-    private static void handleException(String message, Exception ex) {
-        System.err.println(message + ": " + ex.getMessage());
-        ex.printStackTrace();
-    }
-
     private static void cleanup() {
         try {
             System.gc();
         } catch (Exception ex) {
-            handleException("Failed to perform cleanup", ex);
+            System.err.println("[ERROR]" + ex.getMessage());
         }
     }
 }

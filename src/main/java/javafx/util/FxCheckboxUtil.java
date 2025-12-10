@@ -8,13 +8,13 @@ import javafx.scene.control.CheckBox;
 public class FxCheckboxUtil {
     //------------------------------------------------------------------------------------------------------------------
 
-    public static void setSelection(CheckBox checkbox, String permition) {
-        if (permition.equals("0")) {
+    public static void setSelection(CheckBox checkbox, String permission) {
+        if (permission.equals("0")) {
             checkbox.setSelected(false);
-        } else if (permition.equals("1")) {
+        } else if (permission.equals("1")) {
             checkbox.setSelected(true);
         } else {
-            System.out.println("JavaFXMComboBox- set selection problem");
+            System.err.println("[INFO]" + "set Selection problem");
         }
     }
     //------------------------------------------------------------------------------------------------------------------

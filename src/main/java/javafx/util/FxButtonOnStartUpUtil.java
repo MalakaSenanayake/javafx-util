@@ -7,7 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 
 /**
- * @author malaka senanayake @ Creative IT
+ * @author malaka senanayake @ mavora IT
  */
 public class FxButtonOnStartUpUtil {
 
@@ -34,10 +34,10 @@ public class FxButtonOnStartUpUtil {
     }
     //------------------------------------------------------------------------------------------------------------------
 
-    private static void setScale(Node homme) {
-        st = new ScaleTransition(Duration.millis(200), homme);
-        homme.setScaleX(1);
-        homme.setScaleY(1);
+    private static void setScale(Node home) {
+        st = new ScaleTransition(Duration.millis(200), home);
+        home.setScaleX(1);
+        home.setScaleY(1);
         st.setByX(0.4);
         st.setByY(0.4);
         st.setCycleCount(2);
@@ -46,10 +46,10 @@ public class FxButtonOnStartUpUtil {
     }
     //------------------------------------------------------------------------------------------------------------------
 
-    private static void setSmallScale(Node homme) {
-        st = new ScaleTransition(Duration.millis(200), homme);
-        homme.setScaleX(1);
-        homme.setScaleY(1);
+    private static void setSmallScale(Node home) {
+        st = new ScaleTransition(Duration.millis(200), home);
+        home.setScaleX(1);
+        home.setScaleY(1);
         st.setByX(0.1);
         st.setByY(0.1);
         st.setCycleCount(2);

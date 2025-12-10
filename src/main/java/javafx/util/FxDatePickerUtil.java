@@ -25,8 +25,8 @@ public class FxDatePickerUtil {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             LocalDate localDate = LocalDate.parse(dates, formatter);
             datePicker.setValue(localDate);
-        } catch (Exception e) {
-            System.out.println("exception in Datepicker @ setDate method " + e);
+        } catch (Exception ex) {
+            System.out.println("[ERROR]" + ex.getMessage());
         }
 
     }

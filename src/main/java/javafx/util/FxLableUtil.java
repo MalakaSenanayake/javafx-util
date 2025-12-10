@@ -10,11 +10,11 @@ import javafx.scene.control.Label;
 public class FxLableUtil {
 
     //------------------------------------------------------------------------------------------------------------------
-    public static void setDate(Label lable) {
+    public static void setDate(Label label) {
         java.util.Date d = new java.util.Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String date = sdf.format(d);
-        lable.setText(date);
+        label.setText(date);
     }
     //------------------------------------------------------------------------------------------------------------------
 }

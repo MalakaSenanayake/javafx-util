@@ -7,13 +7,23 @@ import javafx.scene.control.PasswordField;
  */
 public class FxPasswordFieldUtil {
 
-    private static final String DEFAULT_STYLE = "-border-colour:-border-colour;-text-colour :-text-colour;"; // normal colour
-    private static final String ERROR_STYLE = "-border-colour:-error-border-colour;-text-colour :-error-text-colour;"; // error colour
+    private static final String DEFAULT_STYLE ; // normal colour
+    private static final String ERROR_STYLE ; // error colour
+    //------------------------------------------------------------------------------------------------------------------
+    static {
+        if (Configuration.theme== Configuration.Theme.LIGHT){
+            DEFAULT_STYLE = Configuration.TEXTFIELD_LIGHT_THEME_DEFAULT;
+            ERROR_STYLE = Configuration.TEXTFIELD_LIGHT_THEME_ERROR;
+        }else{
+            DEFAULT_STYLE =Configuration.TEXTFIELD_DARK_THEME_DEFAULT;
+            ERROR_STYLE = Configuration.TEXTFIELD_DARK_THEME_ERROR;
+        }
+    }
 
     //------------------------------------------------------------------------------------------------------------------
-    public static boolean checkPassword(PasswordField fristPf, PasswordField secondPf) {
-        if (fristPf.getText().length() >= 7) {
-            if (fristPf.getText().equals(secondPf.getText())) {
+    public static boolean checkPassword(PasswordField firstPf, PasswordField secondPf) {
+        if (firstPf.getText().length() >= 7) {
+            if (firstPf.getText().equals(secondPf.getText())) {
                 return true;
             } else {
                 FxAlertsUtil.waningMessage("Your password doesn't math to second one");

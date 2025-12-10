@@ -7,7 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 
 /**
- * @author Convert to Markdown documentation comment
+ * @author malaka senanayake @ mavora IT
  *
  */
 public class FxAnchorPaneUtil {
@@ -29,7 +29,7 @@ public class FxAnchorPaneUtil {
             AnchorPane.setLeftAnchor(homeRoot, 0.0);
             AnchorPane.setRightAnchor(homeRoot, 0.0);
         } catch (IOException ex) {
-            System.out.println("ex - " + ex);
+            System.err.println("[ERROR]" + ex.getMessage());
         }
         return homeRoot;
     }
@@ -46,7 +46,7 @@ public class FxAnchorPaneUtil {
             AnchorPane.setLeftAnchor(homeRoot, 0.0);
             AnchorPane.setRightAnchor(homeRoot, 0.0);
         } catch (IOException ex) {
-            System.out.println(ex);
+            System.err.println("[ERROR]" + ex.getMessage());
         }
 
         return homeRoot;
@@ -59,8 +59,8 @@ public class FxAnchorPaneUtil {
             FxAnimationUtil.setFade(invoiceMain);
             pageLoadingSpace.getChildren().clear();
             pageLoadingSpace.getChildren().add(invoiceMain);
-        } catch (Exception exception) {
-            System.out.println("[ERROR] Exception at AnchorPaneUtil Class " + exception);
+        } catch (Exception ex) {
+            System.err.println("[ERROR]" + ex.getMessage());
         }
     }
 

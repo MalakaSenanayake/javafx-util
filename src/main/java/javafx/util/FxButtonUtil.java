@@ -3,7 +3,7 @@ package javafx.util;
 import javafx.scene.control.Button;
 
 /**
- * @author malaka senanayake @ Creative IT
+ * @author malaka senanayake @ mavora IT
  */
 public class FxButtonUtil {
     //------------------------------------------------------------------------------------------------------------------
@@ -11,12 +11,12 @@ public class FxButtonUtil {
     private static final String SELECTED_STYLE ;
     //------------------------------------------------------------------------------------------------------------------
     static {
-        if (Configuration.getTheme().equals("LIGHT")){
-            DEFAULT_STYLE = "-fx-background-color:rgba(0,0,0,0);";
-            SELECTED_STYLE = "-fx-background-color:rgba(0,0,0,0.4);";
+        if (Configuration.theme== Configuration.Theme.LIGHT){
+            DEFAULT_STYLE = Configuration.BUTTON_LIGHT_THEME_DEFAULT;
+            SELECTED_STYLE = Configuration.BUTTON_LIGHT_THEME_SELECTED;
         }else {
-            DEFAULT_STYLE = "-fx-background-color: rgba(0,0,0,0);";
-            SELECTED_STYLE = "-fx-background-color:rgba(41,128,185 ,0.3);";
+            DEFAULT_STYLE = Configuration.BUTTON_DARK_THEME_DEFAULT;
+            SELECTED_STYLE = Configuration.BUTTON_DARK_THEME_SELECTED;
         }
     }
     //------------------------------------------------------------------------------------------------------------------

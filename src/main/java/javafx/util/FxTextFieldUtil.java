@@ -13,12 +13,12 @@ public class FxTextFieldUtil {
     private static final String ERROR_STYLE ; // error colour
     //------------------------------------------------------------------------------------------------------------------
     static {
-        if (Configuration.getTheme().equals("LIGHT")){
-           DEFAULT_STYLE = "-fx-border-color:-border-colour;-fx-text-fill :-text-colour;"; // normal colour
-           ERROR_STYLE = "-fx-border-color:-error-border-colour;-fx-text-fill :-error-text-colour;"; // error colour
+        if (Configuration.theme== Configuration.Theme.LIGHT){
+           DEFAULT_STYLE = Configuration.TEXTFIELD_LIGHT_THEME_DEFAULT;
+           ERROR_STYLE = Configuration.TEXTFIELD_LIGHT_THEME_ERROR;
         }else{
-           DEFAULT_STYLE = "-fx-border-color:-border-colour;-fx-text-fill :-text-colour;"; // normal colour - same
-           ERROR_STYLE = "-fx-border-color:-error-border-colour;-fx-text-fill :-error-text-colour;"; // error colour - same
+           DEFAULT_STYLE =Configuration.TEXTFIELD_DARK_THEME_DEFAULT;
+           ERROR_STYLE = Configuration.TEXTFIELD_DARK_THEME_ERROR;
         }
     }
     //------------------------------------------------------------------------------------------------------------------
