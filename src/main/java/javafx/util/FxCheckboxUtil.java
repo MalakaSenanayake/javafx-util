@@ -14,7 +14,7 @@ public class FxCheckboxUtil {
         } else if (permission.equals("1")) {
             checkbox.setSelected(true);
         } else {
-            System.err.println("[INFO]" + "set Selection problem");
+            Print.error("Set selection FxCheckboxUtil");
         }
     }
     //------------------------------------------------------------------------------------------------------------------

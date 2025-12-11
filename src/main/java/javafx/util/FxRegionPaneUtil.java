@@ -15,7 +15,7 @@ import javafx.scene.layout.Region;
 public class FxRegionPaneUtil {
     //------------------------------------------------------------------------------------------------------------------
     public static void showRegionPaneAndProgress(Region backRegionPane ,ProgressIndicator loadingProgress){
-        backRegionPane.setStyle("-fx-background-color: transparent;-fx-background-color: rgba(0, 0, 0, 0.4);");
+        backRegionPane.setStyle(Configuration.REGION_PANE_STYLE);
         loadingProgress.setVisible(true);
         backRegionPane.setVisible(true);
         FxAnimationUtil.setFade(backRegionPane);

@@ -18,6 +18,7 @@ public class FxAnchorPaneUtil {
     //------------------------------------------------------------------------------------------------------------------
     static {
         homeRoot = new AnchorPane();
+        FxMessageUtil.themeConfigurationMsg();
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -29,7 +30,7 @@ public class FxAnchorPaneUtil {
             AnchorPane.setLeftAnchor(homeRoot, 0.0);
             AnchorPane.setRightAnchor(homeRoot, 0.0);
         } catch (IOException ex) {
-            System.err.println("[ERROR]" + ex.getMessage());
+            Print.error(ex.getMessage());
         }
         return homeRoot;
     }
@@ -46,7 +47,7 @@ public class FxAnchorPaneUtil {
             AnchorPane.setLeftAnchor(homeRoot, 0.0);
             AnchorPane.setRightAnchor(homeRoot, 0.0);
         } catch (IOException ex) {
-            System.err.println("[ERROR]" + ex.getMessage());
+            Print.error(ex.getMessage());
         }
 
         return homeRoot;
@@ -60,7 +61,7 @@ public class FxAnchorPaneUtil {
             pageLoadingSpace.getChildren().clear();
             pageLoadingSpace.getChildren().add(invoiceMain);
         } catch (Exception ex) {
-            System.err.println("[ERROR]" + ex.getMessage());
+            Print.error(ex.getMessage());
         }
     }
 

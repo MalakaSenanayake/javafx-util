@@ -18,11 +18,9 @@ public class FxMessageUtil {
 
     //------------------------------------------------------------------------------------------------------------------
     protected static void themeConfigurationMsg() {
-        System.out.println("[INFO] -------------------------------------------------------------------------------");
-        System.out.println("[INFO] Theme is not configured. - DEFAULT_STYLE ");
-        System.out.println("[INFO] To LIGHT_THEME theme you can use - Theme.setTheme(ThemeConfig.LIGHT_THEME)");
-        System.out.println("[INFO] To DARK_THEME theme you can use - Theme.setTheme(ThemeConfig.DARK_THEME)");
-        System.out.println("[INFO] -------------------------------------------------------------------------------");
+        Print.info("---------------------------------------------------------------");
+        Print.info("To change app icon, Theme, Alert title Use Configuration Class");
+        Print.info("---------------------------------------------------------------");
     }
     //------------------------------------------------------------------------------------------------------------------
 }

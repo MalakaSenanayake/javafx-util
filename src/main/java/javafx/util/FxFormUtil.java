@@ -35,9 +35,9 @@ public class FxFormUtil {
             loadFXML(fxmlPath);
             showStage();
         } catch (IOException ex) {
-            System.err.println("[ERROR]" + ex.getMessage());
+            Print.error(ex.getMessage());
         } catch (IllegalArgumentException ex) {
-            System.err.println("[ERROR]" + ex.getMessage());
+            Print.error(ex.getMessage());
         } finally {
             cleanup();
         }
@@ -53,9 +53,9 @@ public class FxFormUtil {
             loadFXML(fxmlPath, controller);
             showStage();
         } catch (IOException ex) {
-            System.err.println("[ERROR]" + ex.getMessage());
+            Print.error(ex.getMessage());
         } catch (IllegalArgumentException ex) {
-            System.err.println("[ERROR]" + ex.getMessage());
+            Print.error(ex.getMessage());
         } finally {
             cleanup();
         }
@@ -72,9 +72,9 @@ public class FxFormUtil {
             loadFXML(fxmlAnchorPanePath);
             showStage();
         } catch (IOException ex) {
-            System.err.println("[ERROR]" + ex.getMessage());
+            Print.error(ex.getMessage());
         } catch (IllegalArgumentException ex) {
-            System.err.println("[ERROR]" + ex.getMessage());
+            Print.error(ex.getMessage());
         } finally {
             cleanup();
         }
@@ -89,9 +89,9 @@ public class FxFormUtil {
             loadFXML(fxmlAnchorPanePath, controller);
             showStage();
         } catch (IOException ex) {
-            System.err.println("[ERROR]" + ex.getMessage());
+            Print.error(ex.getMessage());
         } catch (IllegalArgumentException ex) {
-            System.err.println("[ERROR]" + ex.getMessage());
+            Print.error(ex.getMessage());
         } finally {
             cleanup();
         }
@@ -104,7 +104,7 @@ public class FxFormUtil {
                 ((Stage) node.getParent().getScene().getWindow()).close();
             }
         } catch (Exception ex) {
-            System.err.println("[ERROR]" + ex.getMessage());
+            Print.error(ex.getMessage());
         }
     }
 
@@ -116,7 +116,7 @@ public class FxFormUtil {
             subStage.initStyle(style);
             loader = new FXMLLoader();
         } catch (Exception ex) {
-            System.err.println("[ERROR]" + ex.getMessage());
+            Print.error(ex.getMessage());
         }
     }
 
@@ -150,12 +150,12 @@ public class FxFormUtil {
             subStage.centerOnScreen();
             subStage.show();
         } catch (Exception ex) {
-            System.err.println("[ERROR]" + ex.getMessage());
+            Print.error(ex.getMessage());
         }
     }
 
     private static void setStageIcon() {
-        String imagePath = Configuration.APP_ICON;
+        String imagePath = Configuration.getAppIcon();
         try {
             Image icon = new Image(imagePath);
             subStage.getIcons().add(icon);
@@ -167,7 +167,7 @@ public class FxFormUtil {
         try {
             System.gc();
         } catch (Exception ex) {
-            System.err.println("[ERROR]" + ex.getMessage());
+            Print.error(ex.getMessage());
         }
     }
 }

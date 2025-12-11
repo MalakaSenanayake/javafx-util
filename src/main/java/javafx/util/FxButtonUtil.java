@@ -11,12 +11,12 @@ public class FxButtonUtil {
     private static final String SELECTED_STYLE ;
     //------------------------------------------------------------------------------------------------------------------
     static {
-        if (Configuration.theme== Configuration.Theme.LIGHT){
-            DEFAULT_STYLE = Configuration.BUTTON_LIGHT_THEME_DEFAULT;
-            SELECTED_STYLE = Configuration.BUTTON_LIGHT_THEME_SELECTED;
+        if (Configuration.getTheme()== Configuration.Theme.LIGHT){
+            DEFAULT_STYLE = Configuration.BUTTON_LIGHT_THEME_DEFAULT_STYLE;
+            SELECTED_STYLE = Configuration.BUTTON_LIGHT_THEME_SELECTED_STYLE;
         }else {
-            DEFAULT_STYLE = Configuration.BUTTON_DARK_THEME_DEFAULT;
-            SELECTED_STYLE = Configuration.BUTTON_DARK_THEME_SELECTED;
+            DEFAULT_STYLE = Configuration.BUTTON_DARK_THEME_DEFAULT_STYLE;
+            SELECTED_STYLE = Configuration.BUTTON_DARK_THEME_SELECTED_STYLE;
         }
     }
     //------------------------------------------------------------------------------------------------------------------

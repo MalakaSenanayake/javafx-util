@@ -22,7 +22,7 @@ public class FxAlertsUtil {
     private static final String STYLE;
     //------------------------------------------------------------------------------------------------------------------
     static {
-        if(Configuration.theme== Configuration.Theme.LIGHT){ //DARK
+        if(Configuration.getTheme()== Configuration.Theme.LIGHT){ //DARK
             STYLE = Configuration.ALERT_LIGHT_THEME_STYLE;
         }else {
             STYLE = Configuration.ALERT_DARK_THEME_STYLE;
@@ -33,7 +33,7 @@ public class FxAlertsUtil {
     public static void errorMessage(String message,Stage owner) {
         alert = new Alert(AlertType.ERROR);
         setDialogPane(owner);
-        alert.setTitle(Configuration.ALERT_TITLE);
+        alert.setTitle(Configuration.getAlertTitle());
         alert.setHeaderText("Error !");
         alert.setContentText(message);
         alert.showAndWait();
@@ -41,7 +41,7 @@ public class FxAlertsUtil {
     public static void errorMessage(String message) {
         alert = new Alert(AlertType.ERROR);
         setDialogPane();
-        alert.setTitle(Configuration.ALERT_TITLE);
+        alert.setTitle(Configuration.getAlertTitle());
         alert.setHeaderText("Error !");
         alert.setContentText(message);
         alert.showAndWait();
@@ -50,7 +50,7 @@ public class FxAlertsUtil {
     public static void informationMessage(String message, Stage owner) {
         alert = new Alert(AlertType.INFORMATION);
         setDialogPane(owner);
-        alert.setTitle(Configuration.ALERT_TITLE);
+        alert.setTitle(Configuration.getAlertTitle());
         alert.setHeaderText("Success !");
         alert.setContentText(message);
         alert.showAndWait();
@@ -58,7 +58,7 @@ public class FxAlertsUtil {
     public static void informationMessage(String message) {
         alert = new Alert(AlertType.INFORMATION);
         setDialogPane();
-        alert.setTitle(Configuration.ALERT_TITLE);
+        alert.setTitle(Configuration.getAlertTitle());
         alert.setHeaderText("Success !");
         alert.setContentText(message);
         alert.showAndWait();
@@ -67,7 +67,7 @@ public class FxAlertsUtil {
     public static void waningMessage(String message, Stage owner) {
         alert = new Alert(AlertType.WARNING);
         setDialogPane(owner);
-        alert.setTitle(Configuration.ALERT_TITLE);
+        alert.setTitle(Configuration.getAlertTitle());
         alert.setHeaderText("Warning !");
         alert.setContentText(message);
         alert.showAndWait();
@@ -75,7 +75,7 @@ public class FxAlertsUtil {
     public static void waningMessage(String message) {
         alert = new Alert(AlertType.WARNING);
         setDialogPane();
-        alert.setTitle(Configuration.ALERT_TITLE);
+        alert.setTitle(Configuration.getAlertTitle());
         alert.setHeaderText("Warning !");
         alert.setContentText(message);
         alert.showAndWait();
@@ -100,7 +100,7 @@ public class FxAlertsUtil {
         boolean b = false;
         alert = new Alert(AlertType.CONFIRMATION);
         setDialogPane(owner);
-        alert.setTitle(Configuration.ALERT_TITLE);
+        alert.setTitle(Configuration.getAlertTitle());
         alert.setHeaderText("Confirmation !");
         alert.setContentText(message);
         Optional<ButtonType> result = alert.showAndWait();
@@ -113,7 +113,7 @@ public class FxAlertsUtil {
         boolean b = false;
         alert = new Alert(AlertType.CONFIRMATION);
         setDialogPane();
-        alert.setTitle(Configuration.ALERT_TITLE);
+        alert.setTitle(Configuration.getAlertTitle());
         alert.setHeaderText("Confirmation !");
         alert.setContentText(message);
         Optional<ButtonType> result = alert.showAndWait();
@@ -126,7 +126,7 @@ public class FxAlertsUtil {
     private static void setDialogPane(Stage owner) {
         dialogPane = alert.getDialogPane();
         dialogPane.getStylesheets().add(Objects.requireNonNull(FxAlertsUtil.class.getResource(STYLE)).toExternalForm());
-        ((Stage) dialogPane.getScene().getWindow()).getIcons().add(new Image(Configuration.APP_ICON));
+        ((Stage) dialogPane.getScene().getWindow()).getIcons().add(new Image(Configuration.getAppIcon()));
         alert.initOwner(owner);
         alert.initModality(Modality.APPLICATION_MODAL);
     }
@@ -134,7 +134,7 @@ public class FxAlertsUtil {
     private static void setDialogPane() {
         dialogPane = alert.getDialogPane();
         dialogPane.getStylesheets().add(Objects.requireNonNull(FxAlertsUtil.class.getResource(STYLE)).toExternalForm());
-        ((Stage) dialogPane.getScene().getWindow()).getIcons().add(new Image(Configuration.APP_ICON));
+        ((Stage) dialogPane.getScene().getWindow()).getIcons().add(new Image(Configuration.getAppIcon()));
         alert.initModality(Modality.APPLICATION_MODAL);
     }
     //------------------------------------------------------------------------------------------------------------------

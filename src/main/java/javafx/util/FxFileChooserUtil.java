@@ -77,8 +77,8 @@ public class FxFileChooserUtil {
             File file = fileChooser.showOpenDialog(owner);
             path = file.getAbsolutePath();
             path = path.replace("\\", "/");
-        } catch (Exception e) {
-            System.err.println("[Error] exception at FXFileChooser in selectExcelFile method " + e);
+        } catch (Exception ex) {
+            Print.error("File chooser"+ex.getMessage());
         }
         return path;
     }
@@ -106,10 +106,10 @@ public class FxFileChooserUtil {
             } else {
                 FxAlertsUtil.waningMessage("Invalid File Selected! Please select a valid .csv file.",owner);
             }
-        } catch (NullPointerException exception){
-            System.err.println("Exception null pointer - "+exception);
-        } catch (Exception e) {
-            System.err.println("[Error] Exception at FXFileChooser in selectCSVFile method " + e);
+        } catch (NullPointerException ex){
+            Print.error(ex.getMessage());
+        } catch (Exception ex) {
+            Print.error(ex.getMessage());
         }
         return csvFile;
     }

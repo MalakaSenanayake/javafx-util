@@ -27,7 +27,7 @@ public class FxGroupPaneUtil {
             AnchorPane.setLeftAnchor(root, 0.0);
             AnchorPane.setRightAnchor(root, 0.0);
         } catch (IOException ex) {
-            System.err.println("[ERROR]" + ex.getMessage());
+            Print.error(ex.getMessage());
         }
         return root;
     }
@@ -45,7 +45,7 @@ public class FxGroupPaneUtil {
             AnchorPane.setLeftAnchor(root, 0.0);
             AnchorPane.setRightAnchor(root, 0.0);
         } catch (IOException ex) {
-            System.err.println("[ERROR]" + ex.getMessage());
+            Print.error(ex.getMessage());
         }
         return root;
     }
