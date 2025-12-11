@@ -18,9 +18,7 @@ public class FxMessageUtil {
 
     //------------------------------------------------------------------------------------------------------------------
     protected static void themeConfigurationMsg() {
-        Print.info("---------------------------------------------------------------");
-        Print.info("To change app icon, Theme, Alert title Use Configuration Class");
-        Print.info("---------------------------------------------------------------");
+        Print.msgGreen("-- To change app icon, Theme, Alert title Use - javafx.util.Configuration Class --");
     }
     //------------------------------------------------------------------------------------------------------------------
 }
