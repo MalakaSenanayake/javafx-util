@@ -56,11 +56,40 @@ public class FxTextFieldUtil {
     }
 
     //------------------------------------------------------------------------------------------------------------------
+    public static boolean isNotEmptyWithoutNotification(TextField[] ar) {
+        boolean b = true;
+        for (int i = 0; i < ar.length; i++) {
+            if (ar[i].getText().isEmpty()) {
+                toError(ar[i]);
+                Print.warning("You cannot save data with empty fields");
+                toDefault(ar[i]);
+                ar[i].requestFocus();
+                i = ar.length;
+                b = false;
+            }
+        }
+        return b;
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
     public static boolean isNotEmpty(TextField textField) {
         boolean b = true;
         if (textField.getText().isEmpty()) {
             toError(textField);
             FxAlertsUtil.waningMessage("You cannot save data with empty fields , please fill data and retry");
+            toDefault(textField);
+            textField.requestFocus();
+            b = false;
+        }
+        return b;
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
+    public static boolean isNotEmptyWithoutNotification(TextField textField) {
+        boolean b = true;
+        if (textField.getText().isEmpty()) {
+            toError(textField);
+            Print.warning("You cannot save data with empty fields");
             toDefault(textField);
             textField.requestFocus();
             b = false;
