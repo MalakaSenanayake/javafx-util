@@ -33,7 +33,7 @@ public class FxAlertsUtil {
     public static void errorMessage(String message,Stage owner) {
         alert = new Alert(AlertType.ERROR);
         setDialogPane(owner);
-        alert.setTitle(Configuration.getAlertTitle());
+        alert.setTitle(Configuration.getAppName());
         alert.setHeaderText("Error !");
         alert.setContentText(message);
         alert.showAndWait();
@@ -41,7 +41,7 @@ public class FxAlertsUtil {
     public static void errorMessage(String message) {
         alert = new Alert(AlertType.ERROR);
         setDialogPane();
-        alert.setTitle(Configuration.getAlertTitle());
+        alert.setTitle(Configuration.getAppName());
         alert.setHeaderText("Error !");
         alert.setContentText(message);
         alert.showAndWait();
@@ -50,7 +50,7 @@ public class FxAlertsUtil {
     public static void informationMessage(String message, Stage owner) {
         alert = new Alert(AlertType.INFORMATION);
         setDialogPane(owner);
-        alert.setTitle(Configuration.getAlertTitle());
+        alert.setTitle(Configuration.getAppName());
         alert.setHeaderText("Success !");
         alert.setContentText(message);
         alert.showAndWait();
@@ -58,7 +58,7 @@ public class FxAlertsUtil {
     public static void informationMessage(String message) {
         alert = new Alert(AlertType.INFORMATION);
         setDialogPane();
-        alert.setTitle(Configuration.getAlertTitle());
+        alert.setTitle(Configuration.getAppName());
         alert.setHeaderText("Success !");
         alert.setContentText(message);
         alert.showAndWait();
@@ -67,7 +67,7 @@ public class FxAlertsUtil {
     public static void waningMessage(String message, Stage owner) {
         alert = new Alert(AlertType.WARNING);
         setDialogPane(owner);
-        alert.setTitle(Configuration.getAlertTitle());
+        alert.setTitle(Configuration.getAppName());
         alert.setHeaderText("Warning !");
         alert.setContentText(message);
         alert.showAndWait();
@@ -75,7 +75,7 @@ public class FxAlertsUtil {
     public static void waningMessage(String message) {
         alert = new Alert(AlertType.WARNING);
         setDialogPane();
-        alert.setTitle(Configuration.getAlertTitle());
+        alert.setTitle(Configuration.getAppName());
         alert.setHeaderText("Warning !");
         alert.setContentText(message);
         alert.showAndWait();
@@ -100,7 +100,7 @@ public class FxAlertsUtil {
         boolean b = false;
         alert = new Alert(AlertType.CONFIRMATION);
         setDialogPane(owner);
-        alert.setTitle(Configuration.getAlertTitle());
+        alert.setTitle(Configuration.getAppName());
         alert.setHeaderText("Confirmation !");
         alert.setContentText(message);
         Optional<ButtonType> result = alert.showAndWait();
@@ -113,7 +113,7 @@ public class FxAlertsUtil {
         boolean b = false;
         alert = new Alert(AlertType.CONFIRMATION);
         setDialogPane();
-        alert.setTitle(Configuration.getAlertTitle());
+        alert.setTitle(Configuration.getAppName());
         alert.setHeaderText("Confirmation !");
         alert.setContentText(message);
         Optional<ButtonType> result = alert.showAndWait();

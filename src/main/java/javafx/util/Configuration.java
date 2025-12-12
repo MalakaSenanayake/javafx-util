@@ -4,7 +4,7 @@ public class Configuration {
     //------------------------------------------------------------------------------------------------------------------
     private static Theme theme = Theme.LIGHT;
     private static String appIcon = "/image/app-icon.png";
-    private static String alertTitle = "";
+    private static String appName = "";
 
     //------------------------------------------------------------------------------------------------------------------
     public enum Theme {
@@ -13,6 +13,15 @@ public class Configuration {
     }
 
     // -----------------------------------------------------------------------------------------------------------------
+
+    public static String getAppName() {
+        return appName;
+    }
+
+    public static void setAppName(String appName) {
+        Configuration.appName = appName;
+    }
+
     static Theme getTheme() {
         return theme;
     }
@@ -27,14 +36,6 @@ public class Configuration {
 
     public static void setAppIcon(String appIcon) {
         Configuration.appIcon = appIcon;
-    }
-
-    static String getAlertTitle() {
-        return alertTitle;
-    }
-
-    public static void setAlertTitle(String alertTitle) {
-        Configuration.alertTitle = alertTitle;
     }
 
     // Styles --------------------------------------------------------------------------------------------------------------
