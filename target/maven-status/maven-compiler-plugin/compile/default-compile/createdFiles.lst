@@ -7,6 +7,7 @@ javafx\util\Configuration$Theme.class
 javafx\util\FxTableUtil$1.class
 javafx\util\FxTextFieldUtil$9.class
 javafx\util\FxTextFieldUtil$1.class
+javafx\util\FxStackPaneUtil.class
 javafx\util\FxPasswordFieldUtil.class
 javafx\util\Configuration.class
 javafx\util\FxTextFieldUtil$6.class
