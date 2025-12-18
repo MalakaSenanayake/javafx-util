@@ -27,6 +27,7 @@ javafx\util\FxTextFieldUtil$5.class
 javafx\util\FxTableUtil.class
 javafx\util\FxLableUtil.class
 javafx\util\FxAnchorPaneUtil.class
+javafx\util\FxPaneUtil.class
 javafx\util\FxTextFieldUtil$7.class
 javafx\util\FxFileChooserUtil.class
 javafx\util\FxGroupPaneUtil.class

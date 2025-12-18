@@ -54,7 +54,7 @@ public class Configuration {
     static final String TEXTFIELD_DARK_THEME_DEFAULT_STYLE = "-fx-border-color:-border-colour;-fx-text-fill :-text-colour;";
     static final String TEXTFIELD_DARK_THEME_ERROR_STYLE = "-fx-border-color:-error-border-colour;-fx-text-fill :-error-text-colour;"; // error colour
 
-    static final String REGION_PANE_STYLE = "-fx-background: transparent;-fx-background-color: rgba(0, 0, 0, 0.4);";
+    static final String PANE_STYLE = "-fx-background-color: rgba(0, 0, 0, 0.5);";
 
 //----------------------------------------------------------------------------------------------------------------------
 }
