@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javafx.util;
+package com.mavora.fx.util;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 import javafx.scene.control.DatePicker;
+import javafx.util.StringConverter;
 
 /**
  * @author Malaka SENANAYAKE

@@ -1,4 +1,4 @@
-package javafx.util;
+package com.mavora.fx.util;
 
 import java.io.IOException;
 import java.net.URL;

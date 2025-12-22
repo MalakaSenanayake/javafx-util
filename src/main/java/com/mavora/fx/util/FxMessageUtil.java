@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javafx.util;
+package com.mavora.fx.util;
 
 /**
  * @author Malaka SENANAYAKE
@@ -18,7 +18,7 @@ public class FxMessageUtil {
 
     //------------------------------------------------------------------------------------------------------------------
     protected static void themeConfigurationMsg() {
-        Print.msgGreen("-- To change app icon, Theme, Alert title Use - javafx.util.Configuration Class --");
+        Print.msgGreen("-- To change app icon, Theme, Alert title Use - com.mavora.fx.util.Configuration Class --");
     }
     //------------------------------------------------------------------------------------------------------------------
 }

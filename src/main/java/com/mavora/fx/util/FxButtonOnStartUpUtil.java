@@ -1,10 +1,11 @@
-package javafx.util;
+package com.mavora.fx.util;
 
 import javafx.animation.ScaleTransition;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import javafx.util.Duration;
 
 /**
  * @author malaka senanayake @ mavora IT

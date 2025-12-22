@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javafx.util;
+package com.mavora.fx.util;
 
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.layout.Region;

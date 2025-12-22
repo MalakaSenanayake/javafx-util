@@ -1,4 +1,4 @@
-package javafx.util;
+package com.mavora.fx.util;
 
 import java.util.ArrayList;
 import java.util.List;

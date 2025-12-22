@@ -1,4 +1,4 @@
-package javafx.util;
+package com.mavora.fx.util;
 
 import javafx.scene.control.Button;
 

@@ -1,4 +1,4 @@
-package javafx.util;
+package com.mavora.fx.util;
 
 class Print {
     private static final String RESET = "\u001B[0m";
