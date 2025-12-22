@@ -13,7 +13,6 @@ com\mavora\fx\util\FxTableUtil.class
 com\mavora\fx\util\FxGroupPaneUtil.class
 com\mavora\fx\util\FxToolTipUtil.class
 com\mavora\fx\util\FxTextFieldUtil$4.class
-module-info.class
 com\mavora\fx\util\FxButtonOnStartUpUtil$1.class
 com\mavora\fx\util\NumberFormatUtil.class
 com\mavora\fx\util\FxTextFieldUtil$6.class
